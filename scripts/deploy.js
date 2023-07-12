@@ -24,6 +24,23 @@ async function main() {
       lockedAmount
     )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
   );
+  // console.log('network::', network)
+  if (network.config.chainId===11155111) {
+    await lock.deploymentTransaction.wait(1)
+    verify(lock.target, [])
+  }
+}
+
+async function verify(contractAddress, args) {
+  console.log('verify...')
+  try {
+    await hre.run('verify:verify', {
+      address: contractAddress,
+      constructorArguments: args,
+    })
+  } catch (error) {
+    if (error) console.log('verify error::', error)
+  }
 }
 
 // and properly handle errors.
