@@ -18,10 +18,26 @@
 
 * 去 `https://sepolia.etherscan.io/` 可通过合约地址查询
 
+* 在 `.sol` 中使用 `console.log` 
+    ```js
+        import "hardhat/console.sol";
+        console.log("block timestamp is %o", block.timestamp);
+    ```
+* 部署：
+
+    ```js
+        // 方式一：
+        hre.ethers.deployContract()
+    ```
+
+    ```js
+        // 方式一：
+        const SimpleStorage=await ethers.getContractFactory('SimpleStorage')
+        const simpleStorage=await SimpleStorage.deploy();
+    ```
 ### 验证合约
 
-* 安装`hardhat-etherscan`，`yarn add --dev @no`
+* 安装`hardhat-verify`，`yarn add --dev @nomicfoundation/hardhat-verify`
 ### note
 
 * 和这个帖子报错一致：https://ethereum.stackexchange.com/questions/151234/followed-hardhat-test-tutorial-and-got-typeerror-0-ethers-1-getaddress-is
-

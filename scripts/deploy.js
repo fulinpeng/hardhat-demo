@@ -17,27 +17,31 @@ async function main() {
   });
   // console.log('lock::', lock)
 
-  await lock.waitForDeployment();
+  console.log('wait...60s...')
+  await new Promise((resolve) => setTimeout(() => resolve(), 60000));
+
+  if (network.config.chainId===11155111) {
+    console.log('wait...7 blocks...')
+    verify(lock.target, [unlockTime+10])
+  }
+  const withdrawResponse=await lock.withdraw();
+  // await withdrawResponse.wait(1)
 
   console.log(
     `Lock with ${ethers.formatEther(
       lockedAmount
     )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
   );
-  // console.log('network::', network)
-  if (network.config.chainId===11155111) {
-    await lock.deploymentTransaction.wait(1)
-    verify(lock.target, [])
-  }
 }
 
 async function verify(contractAddress, args) {
   console.log('verify...')
   try {
-    await hre.run('verify:verify', {
+    await hre.run("verify:verify", {
       address: contractAddress,
       constructorArguments: args,
-    })
+    });
+    console.log('successful...')
   } catch (error) {
     if (error) console.log('verify error::', error)
   }
