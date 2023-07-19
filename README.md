@@ -37,6 +37,16 @@
 ### 验证合约
 
 * 安装`hardhat-verify`，`yarn add --dev @nomicfoundation/hardhat-verify`
+
+### 自定义hardhat任务
+* 新建 task 文件，然后在 `hardhat.config.js`中引入
+* `yarn hardhat block-number` 或者 `yarn hardhat block-number --network sepolia` 运行任务
+
+### 类似 ganache 的本地节点
+* `yarn hardhat node`
+    1. 本地节点不会在每次运行是重置
+    2. 比测试网快的多
+* 然后再运行：`yarn hardhat run ./scripts/deploy2.js --network localhost`
 ### note
 
 * 和这个帖子报错一致：https://ethereum.stackexchange.com/questions/151234/followed-hardhat-test-tutorial-and-got-typeerror-0-ethers-1-getaddress-is

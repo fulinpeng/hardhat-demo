@@ -2,6 +2,8 @@ require("@nomicfoundation/hardhat-toolbox");
 require('dotenv').config()
 require("@nomicfoundation/hardhat-verify");
 
+require('./tasks/block-number')
+
 /** @type import('hardhat/config').HardhatUserConfig */
 
 const PRIVATE_RPC_URL=process.env.PRIVATE_RPC_URL;
@@ -18,6 +20,11 @@ module.exports={
       url: PRIVATE_RPC_URL,
       accounts: [PRIVATE_KEY],
       chainId: 11155111,
+    },
+    localhost: {
+      url: 'http://127.0.0.1:8545/',
+      // hardhat 自动创建了 100 个 account ，这里不用提供 accounts
+      chainId: 31337,
     }
   },
   solidity: "0.8.9",
