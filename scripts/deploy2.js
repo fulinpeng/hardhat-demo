@@ -7,7 +7,7 @@ async function main() {
     console.log("Deploying contract...")
     const SimpleStorage=await ethers.getContractFactory('SimpleStorage')
     const simpleStorage=await SimpleStorage.deploy();
-    console.log("simpleStorage...", simpleStorage)
+    console.log("simpleStorage.target::", simpleStorage.target)
 
     // what happens when we deploy to our hardhat network?
     if (network.config.chainId===11155111&&process.env.ETHERSCAN_API_KEY) {

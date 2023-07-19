@@ -24,7 +24,6 @@
         console.log("block timestamp is %o", block.timestamp);
     ```
 * 部署：
-
     ```js
         // 方式一：
         hre.ethers.deployContract()
@@ -41,3 +40,6 @@
 ### note
 
 * 和这个帖子报错一致：https://ethereum.stackexchange.com/questions/151234/followed-hardhat-test-tutorial-and-got-typeerror-0-ethers-1-getaddress-is
+
+6-6 
+连 sepolia 会报错 error:: ConnectTimeoutError: Connect Timeout Error
