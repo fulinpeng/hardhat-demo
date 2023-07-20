@@ -47,9 +47,25 @@
     1. 本地节点不会在每次运行是重置
     2. 比测试网快的多
 * 然后再运行：`yarn hardhat run ./scripts/deploy2.js --network localhost`
+
+### hardhat控制台
+* `yarn hardhat node` 然后 `yarn hardhat console --network localhost`
+* 然后直接运行deploy.js中语句，不需要导入方法(但是可能回报语法错误，不好用)
+
+### 测试
+* 清除缓存：`yarn hardhat clean`
+* 在test文件夹下编写测试文件，运行`yarn hardhat test`
+* 指定运行测试用例：
+    1. `yarn hardhat test --grep 更新后`
+    2.  ```js 
+        it.only(...)
+        ```
+
 ### note
 
 * 和这个帖子报错一致：https://ethereum.stackexchange.com/questions/151234/followed-hardhat-test-tutorial-and-got-typeerror-0-ethers-1-getaddress-is
 
 6-6 
 连 sepolia 会报错 error:: ConnectTimeoutError: Connect Timeout Error
+
+6-11
