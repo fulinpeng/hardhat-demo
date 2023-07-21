@@ -60,12 +60,17 @@
     2.  ```js 
         it.only(...)
         ```
+#### hardhat-gas-reporter
+* 测试花费多少gas
+* `yarn add hardhat-gas-reporter --dev`，然后在`hardhat.config.js`中配置
+* 运行`yarn hardhat test`即可
+* `coinmarketcap`在这里获取：`https://pro.coinmarketcap.com/`
 
+#### solidity-coverage
+* 查测试用例覆盖率`yarn hardhat coverage`
 ### note
 
 * 和这个帖子报错一致：https://ethereum.stackexchange.com/questions/151234/followed-hardhat-test-tutorial-and-got-typeerror-0-ethers-1-getaddress-is
 
 6-6 
 连 sepolia 会报错 error:: ConnectTimeoutError: Connect Timeout Error
-
-6-11
